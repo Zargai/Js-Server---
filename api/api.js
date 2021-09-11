@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');
-const authController = require('../controllers/authController');
+// const userController = require('../Lib/userController');
+// const authController = require('../Lib/authController');
 
-router.get('/login', (req,res,next)=>{
-    console.log("hello")
-    res.send("hello")
-});
+//Required api's 
+const User = require('./Routes/Users')
+const auth = require('./Routes/Auth')
+//Main API's Component define Here
+ router.use('/user',User);
+router.use('/auth', auth);
+
+// router.get('/login', (req,res,next)=>{
+//     console.log("hello")
+//     res.send("hello")
+// });
 
 // router.post('/login', authController.login);
 // router.post('/signup', authController.signup);

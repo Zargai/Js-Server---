@@ -7,7 +7,7 @@ const hpp = require('hpp');
 const cors = require('cors');
 
 
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./api/api');
 const globalErrHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 const app = express();
@@ -24,7 +24,7 @@ const limiter = rateLimit({
     windowMs: 60 * 60 * 1000,
     message: 'Too Many Request from this IP, please try again in an hour'
 });
-app.use('/api', limiter);
+app.use('/apis', limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({
@@ -42,7 +42,7 @@ app.use(hpp());
 
 
 // Routes
-app.use('/auth', userRoutes);
+app.use('/api', userRoutes);
 
 // handle undefined Routes
 app.use('*', (req, res, next) => {

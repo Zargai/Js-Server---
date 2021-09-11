@@ -4,6 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "nodemon": "nodemon --exec npm start",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "ndb server.js",
     "start": "nodemon server.js"
   },
