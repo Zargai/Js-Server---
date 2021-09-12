@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 const userRoutes = require('./api/api');
-const globalErrHandler = require('./controllers/errorController');
+const globalErrHandler = require('./utils/errorController');
 const AppError = require('./utils/appError');
 const app = express();
 
